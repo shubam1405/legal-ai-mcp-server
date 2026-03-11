@@ -65,3 +65,8 @@ Provide:
 3. Important precedents
 4. Court reasoning
 """
+def set_document_text(text: str):
+    """Store the uploaded legal document for analysis."""
+    global CURRENT_DOCUMENT
+    CURRENT_DOCUMENT = text
+    return "Document stored successfully."

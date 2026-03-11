@@ -4,7 +4,8 @@ from legal_tools import (
     extract_ipc_sections,
     extract_case_citations,
     generate_case_brief,
-    legal_research_tool
+    legal_research_tool,
+    set_document_text
 )
 
 mcp = FastMCP("Legal AI MCP Server")
@@ -14,6 +15,7 @@ mcp.tool()(extract_ipc_sections)
 mcp.tool()(extract_case_citations)
 mcp.tool()(generate_case_brief)
 mcp.tool()(legal_research_tool)
+mcp.tool()(set_document_text)
 
 if __name__ == "__main__":
     mcp.run()
