@@ -14,21 +14,25 @@ def summarize_document(document_text: str):
 
     return document_text[:3000]
 
-def extract_ipc_sections():
-    """Extract IPC sections mentioned in the document."""
+def extract_ipc_sections(document_text: str):
+    """Extract IPC sections from the document."""
+
+    import re
+
     pattern = r"Section\s\d+"
-    matches = re.findall(pattern, CURRENT_DOCUMENT)
-    return list(set(matches))
 
+    return list(set(re.findall(pattern, document_text)))
 
-def extract_case_citations():
-    """Extract case precedents cited in the judgment."""
+def extract_case_citations(document_text: str):
+    """Extract case precedents."""
+
+    import re
+
     pattern = r"[A-Z][A-Za-z\s\.&]+ v\. [A-Z][A-Za-z\s\.&]+"
-    matches = re.findall(pattern, CURRENT_DOCUMENT)
-    cleaned = [m.replace("\n", " ").strip() for m in matches]
-    return list(set(cleaned))
 
+    matches = re.findall(pattern, document_text)
 
+    return list(set(matches))
 def generate_case_brief():
     """Generate a structured legal case brief from the judgment."""
 
