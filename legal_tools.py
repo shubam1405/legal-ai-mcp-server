@@ -9,10 +9,10 @@ def set_document_text(text):
     CURRENT_DOCUMENT = text
 
 
-def summarize_document():
-    """Generate a summary of the uploaded legal judgment."""
-    return CURRENT_DOCUMENT[:3000]
+def summarize_document(document_text: str):
+    """Summarize a legal judgment document."""
 
+    return document_text[:3000]
 
 def extract_ipc_sections():
     """Extract IPC sections mentioned in the document."""
